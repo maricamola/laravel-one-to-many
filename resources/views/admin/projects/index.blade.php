@@ -11,7 +11,7 @@
 
     <h4 class="mb-3">Elenco progetti</h4>
 
-    <a href="{{ route('admin.projects.create')}}" class="btn btn-primary mb-4">Inserisci nuovo progetto</a>
+    <a href="{{ route('admin.projects.create')}}" class="btn btn-primary mb-4"> Inserisci nuovo progetto </a>
 
     <table class="table">
         <thead>
@@ -29,8 +29,12 @@
             <tr>
                 <td>{{ $project->id }}</td>
                 <td>{{ $project->title }}</td>
-                <td>{{ $project->type }}</td>
-                <td>{{ $project->date_creation }}</td>
+                <td><span class="badge text-bg-primary">{{ $project->category->name }}</span></td>
+
+                <@php
+                    $date = date_create($project->date_creation);
+                @endphp
+                <td>{{ date_format($date, 'd/m/Y')}}</td>
                 <td>
                     <a href="{{ route('admin.projects.show' , $project) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
                     <a href="{{ route('admin.projects.edit' , $project) }}" class="btn btn-warning"><i class="fa-solid fa-pen"></i></a>

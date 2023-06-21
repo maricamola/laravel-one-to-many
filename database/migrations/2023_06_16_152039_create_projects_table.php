@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('type');
             $table->string('thumb')->nullable();
             $table->date('date_creation');
             $table->text('description');

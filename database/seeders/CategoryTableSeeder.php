@@ -16,7 +16,7 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        $data=['Frontend','Backend','Full-stack','Design',];
+        $data=['Front end','Back end','Full stack','Design'];
 
         foreach($data as $category){
             $new_category = New Category();

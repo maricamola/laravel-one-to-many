@@ -201,6 +201,9 @@ Nel model della tabella Category, facciamo il contrario;
 
 anche qui creiamo una public function il cui nome sarà il nome della tabella al plurale(i projects sono tanti, la categoria è una)
 
+Nel DatabaseSeeder.php aggiungiamo anche Category
+
+
 
 
 

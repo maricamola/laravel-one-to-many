@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            ProjectsTableSeeder::class
+            CategoryTableSeeder::class,
+            ProjectsTableSeeder::class, //In produzione committare questo seeder
         ]);
     }
 }
