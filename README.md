@@ -7,16 +7,16 @@
 Nuovo progetto usando laravel breeze ed il pacchetto Laravel 9 Preset con autenticazione.
 
 **Se si vuole clonare la repository i comandi da eseguire per il corretto funzionamento sono;**
-Duplicare e rinominare il file .env
-Eseguire comando npm i 
-Eseguire comando composer install
-Creare la key con php artisan key:generate
-Eseguire comando npm run dev
-Eseguire comando php artisan serve
-Eseguire comando php artisan storage:link (solo se si hanno problemi nella visualizzazione delle immagini.)
+- Duplicare e rinominare il file .env
+- Eseguire comando npm i 
+- Eseguire comando composer install
+- Creare la key con php artisan key:generate
+- Eseguire comando npm run dev
+- Eseguire comando php artisan serve
+- Eseguire comando php artisan storage:link (solo se si hanno problemi nella visualizzazione delle immagini.)
 
 ---------
-**TODO:S**
+**TODO:**
 
 1. Creare progetto con comando:;
 
@@ -168,10 +168,41 @@ Creiamo un symlink della cartella storage che punta nella cartella public:
 Al form inseriamo **enctype="multipart/form-data"** per indicare che contiene dei files.
 
 -------------
+<br>
 
-## Aggiungiamo la "Category" - One to Many
+## Aggiungiamo la "Category" - Relazione One to Many
 
-Creiamo una nuova Migration **php artisan make:model Category -m**
+<br>
+
+
+Creiamo una nuova Migration 
+**php artisan make:model Category -m**
+
+Popoliamo la migration e lanciamo con il comando 
+**php artisan migrate**
+
+Creiamo il Seeder 
+**php artisan make:seeder CategoryTableSeeder**
+
+NB: Se prima di effettuare il save del seeder, vogliamo controllare con un dump che sia tutto corretto, possiamo lanciare questo comando nel terminale: 
+**php artisan db:seed --class=NomeSeeder**
+
+Creiamo una migration update con il comando 
+**php artisan make:migration update_projects_table --table=projects**
+
+Rilanciamo la migrate per controllare che non ci siano errori
+**php artisan migrate**
+
+<h2>Mettiamo in relazione la nostre tabelle:</h2>
+
+In questo caso "projects" è la tabella che contina la FK , quindi andiamo nel model e creiamo una public function il cui nome sarà il nome della tabella al singolare(la categoria è una, i projects sono tanti)
+
+Nel model della tabella Category, facciamo il contrario;
+
+anche qui creiamo una public function il cui nome sarà il nome della tabella al plurale(i projects sono tanti, la categoria è una)
+
+
+
 
 
 

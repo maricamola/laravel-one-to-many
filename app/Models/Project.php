@@ -21,6 +21,11 @@ class Project extends Model
         'thumb_original_name',
     ];
 
+    //Relazione con la tabella Category
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
 
     public static function generateSlug($str){
 
